@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MyDataSet" targetNamespace="http://tempuri.org/MyDataSet.xsd" xmlns:mstns="http://tempuri.org/MyDataSet.xsd" xmlns="http://tempuri.org/MyDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MarathoneConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MarathoneConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Марафон.Properties.Settings.GlobalReference.Default.MarathoneConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ResultRunnerTableAdapter" GeneratorDataComponentClassName="ResultRunnerTableAdapter" Name="ResultRunner" UserDataComponentName="ResultRunnerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        RegistrationEvent.RaceTime, RegistrationEvent.BibNumber, RegistrationEvent.RegistrationID, Event.EventTypeId, Event.MarathonId, RegistrationEvent.Position, RegistrationEvent.EventID
+FROM            Event INNER JOIN
+                         RegistrationEvent ON Event.EventId = RegistrationEvent.EventID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Event
+SET                
+FROM            Event INNER JOIN
+                         RegistrationEvent ON Event.EventId = RegistrationEvent.EventID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RaceTime" DataSetColumn="RaceTime" />
+              <Mapping SourceColumn="BibNumber" DataSetColumn="BibNumber" />
+              <Mapping SourceColumn="RegistrationID" DataSetColumn="RegistrationID" />
+              <Mapping SourceColumn="EventTypeId" DataSetColumn="EventTypeId" />
+              <Mapping SourceColumn="MarathonId" DataSetColumn="MarathonId" />
+              <Mapping SourceColumn="Position" DataSetColumn="Position" />
+              <Mapping SourceColumn="EventID" DataSetColumn="EventID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MySponsorTableAdapter" GeneratorDataComponentClassName="MySponsorTableAdapter" Name="MySponsor" UserDataComponentName="MySponsorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Sponsorship.SponsorshipId, Sponsorship.SponsorName, Sponsorship.Amount, Sponsorship.RegistrationID, Registration.RegistrationId AS RegistrationIdFK, Registration.RunnerID, Charity.CharityLogo, 
+                         Charity.CharityDescription, Charity.CharityName
+FROM            Registration INNER JOIN
+                         Sponsorship ON Registration.RegistrationId = Sponsorship.RegistrationID INNER JOIN
+                         Charity ON Registration.CharityId = Charity.CharityId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SponsorshipId" DataSetColumn="SponsorshipId" />
+              <Mapping SourceColumn="SponsorName" DataSetColumn="SponsorName" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="RegistrationID" DataSetColumn="RegistrationID" />
+              <Mapping SourceColumn="RegistrationIdFK" DataSetColumn="RegistrationIdFK" />
+              <Mapping SourceColumn="RunnerID" DataSetColumn="RunnerID" />
+              <Mapping SourceColumn="CharityName" DataSetColumn="CharityName" />
+              <Mapping SourceColumn="CharityDescription" DataSetColumn="CharityDescription" />
+              <Mapping SourceColumn="CharityLogo" DataSetColumn="CharityLogo1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RunnerSponsorTableAdapter" GeneratorDataComponentClassName="RunnerSponsorTableAdapter" Name="RunnerSponsor" UserDataComponentName="RunnerSponsorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        [User].FirstName, Runner.RunnerId
+FROM            Runner INNER JOIN
+                         [User] ON Runner.Email = [User].Email</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="RunnerId" DataSetColumn="RunnerId" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SponsorCharityTableAdapter" GeneratorDataComponentClassName="SponsorCharityTableAdapter" Name="SponsorCharity" UserDataComponentName="SponsorCharityTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Charity.CharityName, Charity.CharityLogo, Registration.SponsorshipTarget
+FROM            Charity INNER JOIN
+                         Registration ON Charity.CharityId = Registration.CharityId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CharityName" DataSetColumn="CharityName" />
+              <Mapping SourceColumn="CharityLogo" DataSetColumn="CharityLogo" />
+              <Mapping SourceColumn="SponsorshipTarget" DataSetColumn="SponsorshipTarget" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RunCordinatorTableAdapter" GeneratorDataComponentClassName="RunCordinatorTableAdapter" Name="RunCordinator" UserDataComponentName="RunCordinatorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        [User].Email, [User].FirstName, [User].LastName, EventType.EventTypeName, RegistrationStatus.RegistrationStatus, Runner.RunnerId, RegistrationEvent.RegistrationID
+FROM            Event INNER JOIN
+                         EventType ON Event.EventTypeId = EventType.EventTypeId INNER JOIN
+                         RegistrationEvent ON Event.EventId = RegistrationEvent.EventID INNER JOIN
+                         [User] INNER JOIN
+                         Runner ON [User].Email = Runner.Email INNER JOIN
+                         Registration ON Runner.RunnerId = Registration.RunnerID INNER JOIN
+                         RegistrationStatus ON Registration.RegistrationStatusId = RegistrationStatus.RegistrationStatusId ON RegistrationEvent.RegistrationID = Registration.RegistrationId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="RegistrationStatus" DataSetColumn="RegistrationStatus" />
+              <Mapping SourceColumn="RunnerId" DataSetColumn="RunnerId" />
+              <Mapping SourceColumn="RegistrationID" DataSetColumn="RegistrationID" />
+              <Mapping SourceColumn="EventTypeName" DataSetColumn="EventTypeName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PreviousResTableAdapter" GeneratorDataComponentClassName="PreviousResTableAdapter" Name="PreviousRes" UserDataComponentName="PreviousResTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Marathon.MarathonName, EventType.EventTypeName, [User].FirstName, Runner.CountryCode, RegistrationEvent.RaceTime, Runner.Gender, Runner.DateOfBirth
+FROM            Runner INNER JOIN
+                         [User] ON Runner.Email = [User].Email INNER JOIN
+                         Registration ON Runner.RunnerId = Registration.RunnerID INNER JOIN
+                         RegistrationEvent ON Registration.RegistrationId = RegistrationEvent.RegistrationID INNER JOIN
+                         Event ON RegistrationEvent.EventID = Event.EventId INNER JOIN
+                         EventType ON Event.EventTypeId = EventType.EventTypeId INNER JOIN
+                         Marathon ON Event.MarathonId = Marathon.MarathonId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MarathonName" DataSetColumn="MarathonName" />
+              <Mapping SourceColumn="EventTypeName" DataSetColumn="EventTypeName" />
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="CountryCode" DataSetColumn="CountryCode" />
+              <Mapping SourceColumn="RaceTime" DataSetColumn="RaceTime" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="DateOfBirth" DataSetColumn="DateOfBirth" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RunRegistrationMarathoneTableAdapter" GeneratorDataComponentClassName="RunRegistrationMarathoneTableAdapter" Name="RunRegistrationMarathone" UserDataComponentName="RunRegistrationMarathoneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Registration.*, RaceKitOption.*
+FROM            RaceKitOption INNER JOIN
+                         Registration ON RaceKitOption.RaceKitOptionId = Registration.RaceKitOptionID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RegistrationId" DataSetColumn="RegistrationId" />
+              <Mapping SourceColumn="RegistrationDateTime" DataSetColumn="RegistrationDateTime" />
+              <Mapping SourceColumn="RegistrationStatusId" DataSetColumn="RegistrationStatusId" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+              <Mapping SourceColumn="CharityId" DataSetColumn="CharityId" />
+              <Mapping SourceColumn="SponsorshipTarget" DataSetColumn="SponsorshipTarget" />
+              <Mapping SourceColumn="RunnerID" DataSetColumn="RunnerID" />
+              <Mapping SourceColumn="RaceKitOptionID" DataSetColumn="RaceKitOptionID" />
+              <Mapping SourceColumn="RaceKitOptionId1" DataSetColumn="RaceKitOptionId1" />
+              <Mapping SourceColumn="RaceKitOption" DataSetColumn="RaceKitOption" />
+              <Mapping SourceColumn="Cost1" DataSetColumn="Cost1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ManagmentRunnerTableAdapter" GeneratorDataComponentClassName="ManagmentRunnerTableAdapter" Name="ManagmentRunner" UserDataComponentName="ManagmentRunnerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Registration.RegistrationId, Registration.RegistrationDateTime, Registration.RegistrationStatusId, Registration.Cost, Registration.CharityId, Registration.SponsorshipTarget, Registration.RunnerID, Registration.RaceKitOptionID, Runner.RunnerId AS Expr1, 
+             Runner.Gender, Runner.DateOfBirth, Runner.CountryCode, Runner.Email, Runner.Photo, [User].Email AS Expr2, [User].Password, [User].FirstName, [User].LastName, [User].RoleId
+FROM   Registration INNER JOIN
+             Runner ON Registration.RunnerID = Runner.RunnerId INNER JOIN
+             [User] ON Runner.Email = [User].Email</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RegistrationId" DataSetColumn="RegistrationId" />
+              <Mapping SourceColumn="RegistrationDateTime" DataSetColumn="RegistrationDateTime" />
+              <Mapping SourceColumn="RegistrationStatusId" DataSetColumn="RegistrationStatusId" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+              <Mapping SourceColumn="CharityId" DataSetColumn="CharityId" />
+              <Mapping SourceColumn="SponsorshipTarget" DataSetColumn="SponsorshipTarget" />
+              <Mapping SourceColumn="RaceKitOptionID" DataSetColumn="RaceKitOptionID" />
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="DateOfBirth" DataSetColumn="DateOfBirth" />
+              <Mapping SourceColumn="CountryCode" DataSetColumn="CountryCode" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="Photo" DataSetColumn="Photo" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="RoleId" DataSetColumn="RoleId" />
+              <Mapping SourceColumn="RunnerID" DataSetColumn="RunnerID" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RunCordinatorNewTableAdapter" GeneratorDataComponentClassName="RunCordinatorNewTableAdapter" Name="RunCordinatorNew" UserDataComponentName="RunCordinatorNewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MarathoneConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RegistrationStatus.RegistrationStatus, Runner.RunnerId, Registration.RegistrationId, [User].Email, [User].FirstName, [User].LastName, EventType.EventTypeName
+FROM            Runner INNER JOIN
+                         [User] ON Runner.Email = [User].Email INNER JOIN
+                         RegistrationStatus INNER JOIN
+                         Registration ON RegistrationStatus.RegistrationStatusId = Registration.RegistrationStatusId ON Runner.RunnerId = Registration.RunnerID INNER JOIN
+                         RegistrationEvent ON Registration.RegistrationId = RegistrationEvent.RegistrationID INNER JOIN
+                         EventType INNER JOIN
+                         Event ON EventType.EventTypeId = Event.EventTypeId ON RegistrationEvent.EventID = Event.EventId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RegistrationStatus" DataSetColumn="RegistrationStatus" />
+              <Mapping SourceColumn="RunnerId" DataSetColumn="RunnerId" />
+              <Mapping SourceColumn="RegistrationId" DataSetColumn="RegistrationId" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="EventTypeName" DataSetColumn="EventTypeName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MyDataSet" msprop:Generator_UserDSName="MyDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ResultRunner" msprop:Generator_TableClassName="ResultRunnerDataTable" msprop:Generator_TableVarName="tableResultRunner" msprop:Generator_TablePropName="ResultRunner" msprop:Generator_RowDeletingName="ResultRunnerRowDeleting" msprop:Generator_RowChangingName="ResultRunnerRowChanging" msprop:Generator_RowEvHandlerName="ResultRunnerRowChangeEventHandler" msprop:Generator_RowDeletedName="ResultRunnerRowDeleted" msprop:Generator_UserTableName="ResultRunner" msprop:Generator_RowChangedName="ResultRunnerRowChanged" msprop:Generator_RowEvArgName="ResultRunnerRowChangeEvent" msprop:Generator_RowClassName="ResultRunnerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RaceTime" msprop:Generator_ColumnVarNameInTable="columnRaceTime" msprop:Generator_ColumnPropNameInRow="RaceTime" msprop:Generator_ColumnPropNameInTable="RaceTimeColumn" msprop:Generator_UserColumnName="RaceTime" type="xs:int" minOccurs="0" />
+              <xs:element name="BibNumber" msprop:Generator_ColumnVarNameInTable="columnBibNumber" msprop:Generator_ColumnPropNameInRow="BibNumber" msprop:Generator_ColumnPropNameInTable="BibNumberColumn" msprop:Generator_UserColumnName="BibNumber" type="xs:short" minOccurs="0" />
+              <xs:element name="RegistrationID" msprop:Generator_ColumnVarNameInTable="columnRegistrationID" msprop:Generator_ColumnPropNameInRow="RegistrationID" msprop:Generator_ColumnPropNameInTable="RegistrationIDColumn" msprop:Generator_UserColumnName="RegistrationID" type="xs:int" minOccurs="0" />
+              <xs:element name="EventTypeId" msprop:Generator_ColumnVarNameInTable="columnEventTypeId" msprop:Generator_ColumnPropNameInRow="EventTypeId" msprop:Generator_ColumnPropNameInTable="EventTypeIdColumn" msprop:Generator_UserColumnName="EventTypeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MarathonId" msprop:Generator_ColumnVarNameInTable="columnMarathonId" msprop:Generator_ColumnPropNameInRow="MarathonId" msprop:Generator_ColumnPropNameInTable="MarathonIdColumn" msprop:Generator_UserColumnName="MarathonId" type="xs:unsignedByte" />
+              <xs:element name="Position" msprop:Generator_ColumnVarNameInTable="columnPosition" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn" msprop:Generator_UserColumnName="Position" type="xs:int" minOccurs="0" />
+              <xs:element name="EventID" msprop:Generator_ColumnVarNameInTable="columnEventID" msprop:Generator_ColumnPropNameInRow="EventID" msprop:Generator_ColumnPropNameInTable="EventIDColumn" msprop:Generator_UserColumnName="EventID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MySponsor" msprop:Generator_TableClassName="MySponsorDataTable" msprop:Generator_TableVarName="tableMySponsor" msprop:Generator_RowChangedName="MySponsorRowChanged" msprop:Generator_TablePropName="MySponsor" msprop:Generator_RowDeletingName="MySponsorRowDeleting" msprop:Generator_RowChangingName="MySponsorRowChanging" msprop:Generator_RowEvHandlerName="MySponsorRowChangeEventHandler" msprop:Generator_RowDeletedName="MySponsorRowDeleted" msprop:Generator_RowClassName="MySponsorRow" msprop:Generator_UserTableName="MySponsor" msprop:Generator_RowEvArgName="MySponsorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SponsorshipId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnSponsorshipId" msprop:Generator_ColumnPropNameInRow="SponsorshipId" msprop:Generator_ColumnPropNameInTable="SponsorshipIdColumn" msprop:Generator_UserColumnName="SponsorshipId" type="xs:int" />
+              <xs:element name="SponsorName" msprop:Generator_ColumnVarNameInTable="columnSponsorName" msprop:Generator_ColumnPropNameInRow="SponsorName" msprop:Generator_ColumnPropNameInTable="SponsorNameColumn" msprop:Generator_UserColumnName="SponsorName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" />
+              <xs:element name="RegistrationID" msprop:Generator_ColumnVarNameInTable="columnRegistrationID" msprop:Generator_ColumnPropNameInRow="RegistrationID" msprop:Generator_ColumnPropNameInTable="RegistrationIDColumn" msprop:Generator_UserColumnName="RegistrationID" type="xs:int" minOccurs="0" />
+              <xs:element name="RegistrationIdFK" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegistrationIdFK" msprop:Generator_ColumnPropNameInRow="RegistrationIdFK" msprop:Generator_ColumnPropNameInTable="RegistrationIdFKColumn" msprop:Generator_UserColumnName="RegistrationIdFK" type="xs:int" />
+              <xs:element name="RunnerID" msprop:Generator_ColumnVarNameInTable="columnRunnerID" msprop:Generator_ColumnPropNameInRow="RunnerID" msprop:Generator_ColumnPropNameInTable="RunnerIDColumn" msprop:Generator_UserColumnName="RunnerID" type="xs:int" minOccurs="0" />
+              <xs:element name="CharityName" msprop:Generator_ColumnVarNameInTable="columnCharityName" msprop:Generator_ColumnPropNameInRow="CharityName" msprop:Generator_ColumnPropNameInTable="CharityNameColumn" msprop:Generator_UserColumnName="CharityName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CharityDescription" msprop:Generator_ColumnVarNameInTable="columnCharityDescription" msprop:Generator_ColumnPropNameInRow="CharityDescription" msprop:Generator_ColumnPropNameInTable="CharityDescriptionColumn" msprop:Generator_UserColumnName="CharityDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CharityLogo" msprop:Generator_ColumnVarNameInTable="columnCharityLogo" msprop:Generator_ColumnPropNameInRow="CharityLogo" msprop:Generator_ColumnPropNameInTable="CharityLogoColumn" msprop:Generator_UserColumnName="CharityLogo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CharityLogo1" msdata:Caption="CharityLogo" msprop:Generator_ColumnVarNameInTable="columnCharityLogo1" msprop:Generator_ColumnPropNameInRow="CharityLogo1" msprop:Generator_ColumnPropNameInTable="CharityLogo1Column" msprop:Generator_UserColumnName="CharityLogo1" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RunnerSponsor" msprop:Generator_TableClassName="RunnerSponsorDataTable" msprop:Generator_TableVarName="tableRunnerSponsor" msprop:Generator_TablePropName="RunnerSponsor" msprop:Generator_RowDeletingName="RunnerSponsorRowDeleting" msprop:Generator_RowChangingName="RunnerSponsorRowChanging" msprop:Generator_RowEvHandlerName="RunnerSponsorRowChangeEventHandler" msprop:Generator_RowDeletedName="RunnerSponsorRowDeleted" msprop:Generator_UserTableName="RunnerSponsor" msprop:Generator_RowChangedName="RunnerSponsorRowChanged" msprop:Generator_RowEvArgName="RunnerSponsorRowChangeEvent" msprop:Generator_RowClassName="RunnerSponsorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RunnerId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRunnerId" msprop:Generator_ColumnPropNameInRow="RunnerId" msprop:Generator_ColumnPropNameInTable="RunnerIdColumn" msprop:Generator_UserColumnName="RunnerId" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SponsorCharity" msprop:Generator_TableClassName="SponsorCharityDataTable" msprop:Generator_TableVarName="tableSponsorCharity" msprop:Generator_RowChangedName="SponsorCharityRowChanged" msprop:Generator_TablePropName="SponsorCharity" msprop:Generator_RowDeletingName="SponsorCharityRowDeleting" msprop:Generator_RowChangingName="SponsorCharityRowChanging" msprop:Generator_RowEvHandlerName="SponsorCharityRowChangeEventHandler" msprop:Generator_RowDeletedName="SponsorCharityRowDeleted" msprop:Generator_RowClassName="SponsorCharityRow" msprop:Generator_UserTableName="SponsorCharity" msprop:Generator_RowEvArgName="SponsorCharityRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CharityName" msprop:Generator_ColumnVarNameInTable="columnCharityName" msprop:Generator_ColumnPropNameInRow="CharityName" msprop:Generator_ColumnPropNameInTable="CharityNameColumn" msprop:Generator_UserColumnName="CharityName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CharityLogo" msprop:Generator_ColumnVarNameInTable="columnCharityLogo" msprop:Generator_ColumnPropNameInRow="CharityLogo" msprop:Generator_ColumnPropNameInTable="CharityLogoColumn" msprop:Generator_UserColumnName="CharityLogo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="SponsorshipTarget" msprop:Generator_ColumnVarNameInTable="columnSponsorshipTarget" msprop:Generator_ColumnPropNameInRow="SponsorshipTarget" msprop:Generator_ColumnPropNameInTable="SponsorshipTargetColumn" msprop:Generator_UserColumnName="SponsorshipTarget" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RunCordinator" msprop:Generator_TableClassName="RunCordinatorDataTable" msprop:Generator_TableVarName="tableRunCordinator" msprop:Generator_RowChangedName="RunCordinatorRowChanged" msprop:Generator_TablePropName="RunCordinator" msprop:Generator_RowDeletingName="RunCordinatorRowDeleting" msprop:Generator_RowChangingName="RunCordinatorRowChanging" msprop:Generator_RowEvHandlerName="RunCordinatorRowChangeEventHandler" msprop:Generator_RowDeletedName="RunCordinatorRowDeleted" msprop:Generator_RowClassName="RunCordinatorRow" msprop:Generator_UserTableName="RunCordinator" msprop:Generator_RowEvArgName="RunCordinatorRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RegistrationStatus" msprop:Generator_ColumnVarNameInTable="columnRegistrationStatus" msprop:Generator_ColumnPropNameInRow="RegistrationStatus" msprop:Generator_ColumnPropNameInTable="RegistrationStatusColumn" msprop:Generator_UserColumnName="RegistrationStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RunnerId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRunnerId" msprop:Generator_ColumnPropNameInRow="RunnerId" msprop:Generator_ColumnPropNameInTable="RunnerIdColumn" msprop:Generator_UserColumnName="RunnerId" type="xs:int" />
+              <xs:element name="RegistrationID" msprop:Generator_ColumnVarNameInTable="columnRegistrationID" msprop:Generator_ColumnPropNameInRow="RegistrationID" msprop:Generator_ColumnPropNameInTable="RegistrationIDColumn" msprop:Generator_UserColumnName="RegistrationID" type="xs:int" minOccurs="0" />
+              <xs:element name="EventTypeName" msprop:Generator_ColumnVarNameInTable="columnEventTypeName" msprop:Generator_ColumnPropNameInRow="EventTypeName" msprop:Generator_ColumnPropNameInTable="EventTypeNameColumn" msprop:Generator_UserColumnName="EventTypeName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PreviousRes" msprop:Generator_TableClassName="PreviousResDataTable" msprop:Generator_TableVarName="tablePreviousRes" msprop:Generator_TablePropName="PreviousRes" msprop:Generator_RowDeletingName="PreviousResRowDeleting" msprop:Generator_RowChangingName="PreviousResRowChanging" msprop:Generator_RowEvHandlerName="PreviousResRowChangeEventHandler" msprop:Generator_RowDeletedName="PreviousResRowDeleted" msprop:Generator_UserTableName="PreviousRes" msprop:Generator_RowChangedName="PreviousResRowChanged" msprop:Generator_RowEvArgName="PreviousResRowChangeEvent" msprop:Generator_RowClassName="PreviousResRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MarathonName" msprop:Generator_ColumnVarNameInTable="columnMarathonName" msprop:Generator_ColumnPropNameInRow="MarathonName" msprop:Generator_ColumnPropNameInTable="MarathonNameColumn" msprop:Generator_UserColumnName="MarathonName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EventTypeName" msprop:Generator_ColumnVarNameInTable="columnEventTypeName" msprop:Generator_ColumnPropNameInRow="EventTypeName" msprop:Generator_ColumnPropNameInTable="EventTypeNameColumn" msprop:Generator_UserColumnName="EventTypeName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryCode" msprop:Generator_ColumnVarNameInTable="columnCountryCode" msprop:Generator_ColumnPropNameInRow="CountryCode" msprop:Generator_ColumnPropNameInTable="CountryCodeColumn" msprop:Generator_UserColumnName="CountryCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RaceTime" msprop:Generator_ColumnVarNameInTable="columnRaceTime" msprop:Generator_ColumnPropNameInRow="RaceTime" msprop:Generator_ColumnPropNameInTable="RaceTimeColumn" msprop:Generator_UserColumnName="RaceTime" type="xs:int" minOccurs="0" />
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateOfBirth" msprop:Generator_ColumnVarNameInTable="columnDateOfBirth" msprop:Generator_ColumnPropNameInRow="DateOfBirth" msprop:Generator_ColumnPropNameInTable="DateOfBirthColumn" msprop:Generator_UserColumnName="DateOfBirth" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RunRegistrationMarathone" msprop:Generator_TableClassName="RunRegistrationMarathoneDataTable" msprop:Generator_TableVarName="tableRunRegistrationMarathone" msprop:Generator_RowChangedName="RunRegistrationMarathoneRowChanged" msprop:Generator_TablePropName="RunRegistrationMarathone" msprop:Generator_RowDeletingName="RunRegistrationMarathoneRowDeleting" msprop:Generator_RowChangingName="RunRegistrationMarathoneRowChanging" msprop:Generator_RowEvHandlerName="RunRegistrationMarathoneRowChangeEventHandler" msprop:Generator_RowDeletedName="RunRegistrationMarathoneRowDeleted" msprop:Generator_RowClassName="RunRegistrationMarathoneRow" msprop:Generator_UserTableName="RunRegistrationMarathone" msprop:Generator_RowEvArgName="RunRegistrationMarathoneRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegistrationId" msprop:Generator_ColumnPropNameInRow="RegistrationId" msprop:Generator_ColumnPropNameInTable="RegistrationIdColumn" msprop:Generator_UserColumnName="RegistrationId" type="xs:int" />
+              <xs:element name="RegistrationDateTime" msprop:Generator_ColumnVarNameInTable="columnRegistrationDateTime" msprop:Generator_ColumnPropNameInRow="RegistrationDateTime" msprop:Generator_ColumnPropNameInTable="RegistrationDateTimeColumn" msprop:Generator_UserColumnName="RegistrationDateTime" type="xs:dateTime" />
+              <xs:element name="RegistrationStatusId" msprop:Generator_ColumnVarNameInTable="columnRegistrationStatusId" msprop:Generator_ColumnPropNameInRow="RegistrationStatusId" msprop:Generator_ColumnPropNameInTable="RegistrationStatusIdColumn" msprop:Generator_UserColumnName="RegistrationStatusId" type="xs:unsignedByte" />
+              <xs:element name="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" msprop:Generator_UserColumnName="Cost" type="xs:decimal" />
+              <xs:element name="CharityId" msprop:Generator_ColumnVarNameInTable="columnCharityId" msprop:Generator_ColumnPropNameInRow="CharityId" msprop:Generator_ColumnPropNameInTable="CharityIdColumn" msprop:Generator_UserColumnName="CharityId" type="xs:int" />
+              <xs:element name="SponsorshipTarget" msprop:Generator_ColumnVarNameInTable="columnSponsorshipTarget" msprop:Generator_ColumnPropNameInRow="SponsorshipTarget" msprop:Generator_ColumnPropNameInTable="SponsorshipTargetColumn" msprop:Generator_UserColumnName="SponsorshipTarget" type="xs:decimal" />
+              <xs:element name="RunnerID" msprop:Generator_ColumnVarNameInTable="columnRunnerID" msprop:Generator_ColumnPropNameInRow="RunnerID" msprop:Generator_ColumnPropNameInTable="RunnerIDColumn" msprop:Generator_UserColumnName="RunnerID" type="xs:int" minOccurs="0" />
+              <xs:element name="RaceKitOptionID" msprop:Generator_ColumnVarNameInTable="columnRaceKitOptionID" msprop:Generator_ColumnPropNameInRow="RaceKitOptionID" msprop:Generator_ColumnPropNameInTable="RaceKitOptionIDColumn" msprop:Generator_UserColumnName="RaceKitOptionID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RaceKitOptionId1" msprop:Generator_ColumnVarNameInTable="columnRaceKitOptionId1" msprop:Generator_ColumnPropNameInRow="RaceKitOptionId1" msprop:Generator_ColumnPropNameInTable="RaceKitOptionId1Column" msprop:Generator_UserColumnName="RaceKitOptionId1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RaceKitOption" msprop:Generator_ColumnVarNameInTable="columnRaceKitOption" msprop:Generator_ColumnPropNameInRow="RaceKitOption" msprop:Generator_ColumnPropNameInTable="RaceKitOptionColumn" msprop:Generator_UserColumnName="RaceKitOption">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cost1" msprop:Generator_ColumnVarNameInTable="columnCost1" msprop:Generator_ColumnPropNameInRow="Cost1" msprop:Generator_ColumnPropNameInTable="Cost1Column" msprop:Generator_UserColumnName="Cost1" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ManagmentRunner" msprop:Generator_TableClassName="ManagmentRunnerDataTable" msprop:Generator_TableVarName="tableManagmentRunner" msprop:Generator_RowChangedName="ManagmentRunnerRowChanged" msprop:Generator_TablePropName="ManagmentRunner" msprop:Generator_RowDeletingName="ManagmentRunnerRowDeleting" msprop:Generator_RowChangingName="ManagmentRunnerRowChanging" msprop:Generator_RowEvHandlerName="ManagmentRunnerRowChangeEventHandler" msprop:Generator_RowDeletedName="ManagmentRunnerRowDeleted" msprop:Generator_RowClassName="ManagmentRunnerRow" msprop:Generator_UserTableName="ManagmentRunner" msprop:Generator_RowEvArgName="ManagmentRunnerRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegistrationId" msprop:Generator_ColumnPropNameInRow="RegistrationId" msprop:Generator_ColumnPropNameInTable="RegistrationIdColumn" msprop:Generator_UserColumnName="RegistrationId" type="xs:int" />
+              <xs:element name="RegistrationDateTime" msprop:Generator_ColumnVarNameInTable="columnRegistrationDateTime" msprop:Generator_ColumnPropNameInRow="RegistrationDateTime" msprop:Generator_ColumnPropNameInTable="RegistrationDateTimeColumn" msprop:Generator_UserColumnName="RegistrationDateTime" type="xs:dateTime" />
+              <xs:element name="RegistrationStatusId" msprop:Generator_ColumnVarNameInTable="columnRegistrationStatusId" msprop:Generator_ColumnPropNameInRow="RegistrationStatusId" msprop:Generator_ColumnPropNameInTable="RegistrationStatusIdColumn" msprop:Generator_UserColumnName="RegistrationStatusId" type="xs:unsignedByte" />
+              <xs:element name="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" msprop:Generator_UserColumnName="Cost" type="xs:decimal" />
+              <xs:element name="CharityId" msprop:Generator_ColumnVarNameInTable="columnCharityId" msprop:Generator_ColumnPropNameInRow="CharityId" msprop:Generator_ColumnPropNameInTable="CharityIdColumn" msprop:Generator_UserColumnName="CharityId" type="xs:int" />
+              <xs:element name="SponsorshipTarget" msprop:Generator_ColumnVarNameInTable="columnSponsorshipTarget" msprop:Generator_ColumnPropNameInRow="SponsorshipTarget" msprop:Generator_ColumnPropNameInTable="SponsorshipTargetColumn" msprop:Generator_UserColumnName="SponsorshipTarget" type="xs:decimal" />
+              <xs:element name="RaceKitOptionID" msprop:Generator_ColumnVarNameInTable="columnRaceKitOptionID" msprop:Generator_ColumnPropNameInRow="RaceKitOptionID" msprop:Generator_ColumnPropNameInTable="RaceKitOptionIDColumn" msprop:Generator_UserColumnName="RaceKitOptionID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateOfBirth" msprop:Generator_ColumnVarNameInTable="columnDateOfBirth" msprop:Generator_ColumnPropNameInRow="DateOfBirth" msprop:Generator_ColumnPropNameInTable="DateOfBirthColumn" msprop:Generator_UserColumnName="DateOfBirth" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CountryCode" msprop:Generator_ColumnVarNameInTable="columnCountryCode" msprop:Generator_ColumnPropNameInRow="CountryCode" msprop:Generator_ColumnPropNameInTable="CountryCodeColumn" msprop:Generator_UserColumnName="CountryCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_UserColumnName="Photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RoleId" msprop:Generator_ColumnVarNameInTable="columnRoleId" msprop:Generator_ColumnPropNameInRow="RoleId" msprop:Generator_ColumnPropNameInTable="RoleIdColumn" msprop:Generator_UserColumnName="RoleId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RunnerID" msprop:Generator_ColumnVarNameInTable="columnRunnerID" msprop:Generator_ColumnPropNameInRow="RunnerID" msprop:Generator_ColumnPropNameInTable="RunnerIDColumn" msprop:Generator_UserColumnName="RunnerID" type="xs:int" minOccurs="0" />
+              <xs:element name="Expr1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
+              <xs:element name="Expr2" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RunCordinatorNew" msprop:Generator_TableClassName="RunCordinatorNewDataTable" msprop:Generator_TableVarName="tableRunCordinatorNew" msprop:Generator_TablePropName="RunCordinatorNew" msprop:Generator_RowDeletingName="RunCordinatorNewRowDeleting" msprop:Generator_RowChangingName="RunCordinatorNewRowChanging" msprop:Generator_RowEvHandlerName="RunCordinatorNewRowChangeEventHandler" msprop:Generator_RowDeletedName="RunCordinatorNewRowDeleted" msprop:Generator_UserTableName="RunCordinatorNew" msprop:Generator_RowChangedName="RunCordinatorNewRowChanged" msprop:Generator_RowEvArgName="RunCordinatorNewRowChangeEvent" msprop:Generator_RowClassName="RunCordinatorNewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationStatus" msprop:Generator_ColumnVarNameInTable="columnRegistrationStatus" msprop:Generator_ColumnPropNameInRow="RegistrationStatus" msprop:Generator_ColumnPropNameInTable="RegistrationStatusColumn" msprop:Generator_UserColumnName="RegistrationStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RunnerId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRunnerId" msprop:Generator_ColumnPropNameInRow="RunnerId" msprop:Generator_ColumnPropNameInTable="RunnerIdColumn" msprop:Generator_UserColumnName="RunnerId" type="xs:int" />
+              <xs:element name="RegistrationId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegistrationId" msprop:Generator_ColumnPropNameInRow="RegistrationId" msprop:Generator_ColumnPropNameInTable="RegistrationIdColumn" msprop:Generator_UserColumnName="RegistrationId" type="xs:int" />
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EventTypeName" msprop:Generator_ColumnVarNameInTable="columnEventTypeName" msprop:Generator_ColumnPropNameInRow="EventTypeName" msprop:Generator_ColumnPropNameInTable="EventTypeNameColumn" msprop:Generator_UserColumnName="EventTypeName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MySponsor" />
+      <xs:field xpath="mstns:SponsorshipId" />
+      <xs:field xpath="mstns:RegistrationIdFK" />
+    </xs:unique>
+    <xs:unique name="RunnerSponsor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RunnerSponsor" />
+      <xs:field xpath="mstns:RunnerId" />
+    </xs:unique>
+    <xs:unique name="RunCordinator_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RunCordinator" />
+      <xs:field xpath="mstns:Email" />
+    </xs:unique>
+    <xs:unique name="RunRegistrationMarathone_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RunRegistrationMarathone" />
+      <xs:field xpath="mstns:RegistrationId" />
+      <xs:field xpath="mstns:RaceKitOptionId1" />
+    </xs:unique>
+    <xs:unique name="ManagmentRunner_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ManagmentRunner" />
+      <xs:field xpath="mstns:RegistrationId" />
+      <xs:field xpath="mstns:Expr1" />
+      <xs:field xpath="mstns:Expr2" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
